@@ -4,7 +4,7 @@
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma" 
-  engineType      = "client" // enable Prisma ORM without Rust
+  //engineType      = "client" // enable Prisma ORM without Rust
 }
 
 datasource db {
