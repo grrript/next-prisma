@@ -1,16 +1,10 @@
 import { db } from "@/db";
 import { redirect } from "next/navigation";
 
-const add = (a: number, b: number) => {
-  return a + b;
-};
-
 export default function AddSnippet() {
   async function createSnippet(formData: FormData) {
     "use server";
 
-    console.log(formData.get("title"));
-    console.log(formData.get("code"));
     const snippet = await db.snippet.create({
       data: {
         title: formData.get("title") as string,
@@ -21,8 +15,6 @@ export default function AddSnippet() {
     await db.$disconnect();
     redirect("/");
   }
-  console.log(process.env.DATABASE_URL);
-  console.log("rocks01");
   return (
     <div className="container mx-auto px-12">
       <form action={createSnippet}>
