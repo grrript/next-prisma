@@ -29,7 +29,7 @@ export default function SnippetEditForm(props: Snippet) {
         <button
           disabled={props.code === code}
           type="submit"
-          className="border rounded px-3 py-2 my-6 hover"
+          className="border rounded px-3 py-2 my-6 cursor-pointer hover:bg-sky-700"
         >
           Save
         </button>

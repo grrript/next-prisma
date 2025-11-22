@@ -9,7 +9,7 @@ export default async function Home() {
       <Link
         key={item.id}
         href={`snippets/${item.id}`}
-        className="border rounded p-4 flex justify-between items-center"
+        className="border rounded p-4 flex justify-between items-center cursor-pointer hover:bg-sky-700"
       >
         <div>{item.title}</div>
         <div>View</div>

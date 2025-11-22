@@ -1,6 +1,7 @@
 import { db } from "@/db";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import * as actions from "@/snippet/actions";
 
 interface ViewSnippetProps {
   params: Promise<{ id: string }>;
@@ -8,6 +9,8 @@ interface ViewSnippetProps {
 export default async function ViewSnippet(props: ViewSnippetProps) {
   const { id } = await props.params;
   const snippet = await db.snippet.findFirst({ where: { id: parseInt(id) } });
+
+  const deleteSnippet = actions.deleteSnippet.bind(null, parseInt(id));
 
   if (!snippet) {
     return notFound();
@@ -20,10 +23,17 @@ export default async function ViewSnippet(props: ViewSnippetProps) {
         <div className="flex justify-between items-center py-4">
           <div className="text-xl font-bold py-4">{snippet.title}</div>
           <div className="flex gap-4">
-            <button className="border rounded px-3 py-2 hover">
+            <button className="border rounded px-3 py-2 cursor-pointer hover:bg-sky-800">
               <Link href={`/snippets/${snippet.id}/edit`}>Edit</Link>
             </button>
-            <button className="border rounded px-3 py-2">Delete</button>
+            <form action={deleteSnippet}>
+              <button
+                type="submit"
+                className="border rounded px-3 py-2 cursor-pointer hover:bg-sky-800"
+              >
+                Delete
+              </button>
+            </form>
           </div>
         </div>
         <pre className="bg-gray-700 p-6 border rounded border-gray-300">
