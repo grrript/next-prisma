@@ -12,7 +12,7 @@ export default function SnippetEditForm(props: Snippet) {
     setCode(value);
   };
 
-  const onSubmit = actions.editSubmit.bind(null, props.id, code);
+  const onSubmit = actions.editSnippet.bind(null, props.id, code);
 
   return (
     <div>

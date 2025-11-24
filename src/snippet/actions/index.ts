@@ -1,18 +1,22 @@
 "use server";
 
 import { db } from "@/db";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { SNIPPET_HOME } from "../constants";
 
-export const editSubmit = async (id: number, code: string) => {
+export const editSnippet = async (id: number, code: string) => {
   await db.snippet.update({
     where: { id },
     data: { code },
   });
+  revalidatePath(`/snippets/${id}`);
   redirect(`/snippets/${id}`);
 };
 
 export const deleteSnippet = async (id: number) => {
   await db.snippet.delete({ where: { id } });
+  revalidatePath(SNIPPET_HOME);
   redirect(`/`);
 };
 
@@ -39,6 +43,7 @@ export async function createSnippet(
         code,
       },
     });
+    revalidatePath(SNIPPET_HOME);
   } catch (err) {
     if (err instanceof Error) {
       return { message: err.message };
