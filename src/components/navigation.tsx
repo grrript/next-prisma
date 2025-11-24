@@ -9,8 +9,8 @@ export default function Navigation() {
       <Link href={"/about-us"} className="p-2">
         About us
       </Link>
-      <Link href={"/contact-us"} className="p-2">
-        Contact us
+      <Link href={"/snippets"} className="p-2">
+        Snippets App
       </Link>
     </div>
   );

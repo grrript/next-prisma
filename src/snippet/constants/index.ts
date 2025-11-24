@@ -1,1 +1,1 @@
-export const SNIPPET_HOME = "/";
+export const SNIPPET_HOME = "/snippets";
