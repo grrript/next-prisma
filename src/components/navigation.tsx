@@ -12,6 +12,12 @@ export default function Navigation() {
       <Link href={"/snippets"} className="p-2">
         Snippets App
       </Link>
+      <Link href={"/snippets-obs"} className="p-2">
+        Snippets Obs
+      </Link>
+      <Link href={"/reddit"} className="p-2">
+        Reddit
+      </Link>
     </div>
   );
 }
