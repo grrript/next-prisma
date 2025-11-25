@@ -8,6 +8,7 @@ export default function AddSnippet() {
     message: "",
   });
 
+  // important: create this handler so that the form does not reset
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
