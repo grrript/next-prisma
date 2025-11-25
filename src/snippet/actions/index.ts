@@ -28,6 +28,10 @@ export async function createSnippet(
   const code = formData.get("code");
 
   //error handling from server
+  // never throw an error like this
+  // throw new Error("Something went wrong.")
+  // because that will wipe out the page and just throw an error page.
+  // You only want to return a message object/json
   try {
     if (typeof title !== "string" || title.length < 3) {
       return { message: "Title must be longer." };
