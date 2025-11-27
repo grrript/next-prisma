@@ -6,11 +6,11 @@ export default class Observable {
     this._value = initValue;
   }
 
-  set(newValue: any) {
+  set value(newValue: any) {
     this._value = newValue;
   }
 
-  get() {
+  get value() {
     return this._value;
   }
 

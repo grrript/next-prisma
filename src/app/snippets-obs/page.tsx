@@ -5,22 +5,11 @@ import Link from "next/link";
 
 export default async function SnippetsHome() {
   const snippetsPresenter = new SnippetsPresenter();
-  // const [vm, setVm] = React.useState<Snippet[]>();
-
-  //   React.useEffect(() => {
-  //     async function load() {
-  //       await snippetsPresenter.load((vm) => {
-  //         setVm(vm);
-  //       });
-  //     }
-  //     load();
-  //   }, []);
 
   let vm: Snippet[] | null = null;
 
   await snippetsPresenter.load((generatedVM: Snippet[]) => {
     vm = generatedVM;
-    console.log("rocks90: ", vm);
   });
 
   return (

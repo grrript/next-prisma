@@ -1,17 +1,16 @@
-import { db } from "@/db";
 import type { Snippet } from "@/../generated/prisma/client";
 import Observable from "./Observable";
 import * as action from "@/snippet/actions";
 
 class SnippetsRepository {
-  programmersModel: Observable;
+  snippetsPm: Observable;
 
   constructor() {
-    this.programmersModel = new Observable([]);
+    this.snippetsPm = new Observable([]);
   }
 
   getBooks = async (callback: any) => {
-    this.programmersModel.subscribe(callback);
+    this.snippetsPm.subscribe(callback);
     await this.loadApiData();
   };
   loadApiData = async () => {
@@ -20,12 +19,19 @@ class SnippetsRepository {
       // Note: usually some major data transformation here
       return snippetDto;
     });
-    console.log("rocks server01a", snippets);
 
-    this.programmersModel.set(snippets);
+    this.snippetsPm.value = snippets;
+    this.snippetsPm.notify();
+  };
+  refreshModelData = () => {
+    // this code is kinda silly but am leaving it here for now
+    this.snippetsPm.value = this.snippetsPm.value.map((pm: Snippet) => {
+      return pm;
+    });
+    this.snippetsPm.notify();
   };
 }
 
-//const snippetsRepository = new SnippetsRepository();
+const snippetsRepository = new SnippetsRepository();
 
-export default SnippetsRepository;
+export default snippetsRepository;
