@@ -2,6 +2,7 @@
   "name": "aa_initial",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "npx prisma generate --no-engine && next build",
@@ -10,11 +11,14 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@heroui/react": "^3.0.0-beta.2",
+    "@heroui/styles": "^3.0.0-beta.2",
     "@monaco-editor/react": "^4.7.0",
     "@prisma/adapter-pg": "^7.0.0",
     "@prisma/client": "^6.19.0",
     "@prisma/extension-accelerate": "^2.0.2",
     "dotenv": "^17.2.3",
+    "framer-motion": "^12.23.24",
     "next": "16.0.3",
     "pg": "^8.16.3",
     "prisma": "^6.19.0",
@@ -22,6 +26,8 @@
     "react-dom": "19.2.0"
   },
   "devDependencies": {
+    "@iconify-icon/react": "^3.0.3",
+    "@iconify/react": "^6.0.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/pg": "^8.15.6",
