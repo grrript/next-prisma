@@ -2,6 +2,7 @@ import React from "react";
 import SnippetsPresenter from "./SnippetsPresenter";
 import { Snippet } from "../../../generated/prisma/client";
 import Link from "next/link";
+import ChildComponent from "@/snippet/components/childComponent";
 
 export default async function SnippetsHome() {
   const snippetsPresenter = new SnippetsPresenter();
@@ -24,6 +25,8 @@ export default async function SnippetsHome() {
           );
         })}
       </div>
+      <div>Client side Child Component</div>
+      <ChildComponent />
     </div>
   );
 }
