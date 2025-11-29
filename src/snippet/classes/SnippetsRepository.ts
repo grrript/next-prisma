@@ -1,6 +1,6 @@
-import type { Snippet } from "@/../generated/prisma/client";
-import Observable from "./Observable";
-import * as action from "@/snippet/actions";
+import Observable from "../../app/snippets-obs/Observable";
+import ISnippetsGateway from "./SnippetsGateway";
+import { CallbackPm, Snippet } from "./types";
 
 class SnippetsRepository {
   snippetsPm: Observable;
@@ -9,14 +9,18 @@ class SnippetsRepository {
     this.snippetsPm = new Observable([]);
   }
 
-  getBooks = async (callback: any) => {
+  getSnippets = async (
+    callback: CallbackPm,
+    snippetsApi: ISnippetsGateway["getSnippets"]
+  ) => {
     this.snippetsPm.subscribe(callback);
-    await this.loadApiData();
+    await this.loadApiData(snippetsApi);
   };
-  loadApiData = async () => {
-    const snippetsDto: Snippet[] = await action.getSnippets();
+  loadApiData = async (snippetsApi: ISnippetsGateway["getSnippets"]) => {
+    const snippetsDto: Snippet[] = await snippetsApi();
+
     const snippets = snippetsDto.map((snippetDto) => {
-      // Note: usually some major data transformation here
+      // @Note: usually some major data transformation here
       return snippetDto;
     });
 

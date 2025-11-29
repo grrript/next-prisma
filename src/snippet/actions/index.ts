@@ -7,7 +7,10 @@ import { SNIPPET_HOME, SNIPPET_HOME_OBS } from "../constants";
 
 export const getSnippets = async () => await db.snippet.findMany();
 
-export const editSnippet = async (id: number, code: string) => {
+export const getSnippet = async (id: number) =>
+  await db.snippet.findUnique({ where: { id } });
+
+export const updateSnippet = async (id: number, code: string) => {
   await db.snippet.update({
     where: { id },
     data: { code },

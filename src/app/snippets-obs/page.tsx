@@ -1,15 +1,17 @@
-import React from "react";
-import SnippetsPresenter from "./SnippetsPresenter";
-import { Snippet } from "../../../generated/prisma/client";
+import SnippetsPresenter from "../../snippet/classes/SnippetsPresenter";
 import Link from "next/link";
 import ChildComponent from "@/snippet/components/childComponent";
+import SnippetsGateway from "../../snippet/classes/SnippetsGateway";
+import { SnippetSummary } from "@/snippet/classes/types";
 
 export default async function SnippetsHome() {
-  const snippetsPresenter = new SnippetsPresenter();
+  const getSnippets = new SnippetsGateway().getSnippets;
 
-  let vm: Snippet[] | null = null;
+  const snippetsPresenter = new SnippetsPresenter(getSnippets);
 
-  await snippetsPresenter.load((generatedVM: Snippet[]) => {
+  let vm: SnippetSummary[] | null = null;
+
+  await snippetsPresenter.load((generatedVM: SnippetSummary[]) => {
     vm = generatedVM;
   });
 
