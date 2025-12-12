@@ -1,4 +1,4 @@
-import * as actions from "@/snippet/actions";
+import * as actions from "@/projects/snippet/infrastructure/actions";
 
 export default class SnippetsGateway {
   getSnippets = async () => {

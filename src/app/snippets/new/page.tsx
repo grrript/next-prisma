@@ -1,6 +1,6 @@
 "use client";
 
-import * as actions from "@/snippet/actions";
+import * as actions from "@/projects/snippet/infrastructure/actions";
 import { useActionState, startTransition } from "react";
 
 export default function AddSnippet() {

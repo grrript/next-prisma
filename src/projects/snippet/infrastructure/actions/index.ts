@@ -3,7 +3,7 @@
 import { db } from "@/db";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { SNIPPET_HOME, SNIPPET_HOME_OBS } from "../constants";
+import { SNIPPET_HOME, SNIPPET_HOME_OBS } from "../../../../snippet/constants";
 
 export const getSnippets = async () => await db.snippet.findMany();
 

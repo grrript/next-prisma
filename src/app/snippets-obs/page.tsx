@@ -1,8 +1,8 @@
-import SnippetsPresenter from "../../snippet/classes/SnippetsPresenter";
+import SnippetsPresenter from "../../projects/snippet/application/snippetslist/SnippetsPresenter";
 import Link from "next/link";
-import ChildComponent from "@/snippet/components/childComponent";
-import SnippetsGateway from "../../snippet/classes/SnippetsGateway";
-import { SnippetSummary } from "@/snippet/classes/types";
+import ChildComponent from "@/projects/snippet/components/childComponent";
+import SnippetsGateway from "../../projects/snippet/infrastructure/SnippetsGateway";
+import { SnippetSummary } from "@/projects/snippet/domain/snippet";
 
 export default async function SnippetsHome() {
   const getSnippets = new SnippetsGateway().getSnippets;

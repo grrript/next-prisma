@@ -1,7 +1,7 @@
 import { db } from "@/db";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import * as actions from "@/snippet/actions";
+import * as actions from "@/projects/snippet/infrastructure/actions";
 
 interface ViewSnippetProps {
   params: Promise<{ id: string }>;

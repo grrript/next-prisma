@@ -1,4 +1,4 @@
-import SnippetEditForm from "@/snippet/components/snippetEditForm";
+import SnippetEditForm from "@/projects/snippet/components/snippetEditForm";
 import { db } from "@/db";
 import { notFound } from "next/navigation";
 

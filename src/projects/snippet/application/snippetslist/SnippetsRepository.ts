@@ -1,6 +1,6 @@
-import Observable from "../../app/snippets-obs/Observable";
-import ISnippetsGateway from "./SnippetsGateway";
-import { CallbackPm, Snippet } from "./types";
+import Observable from "../Observable";
+import ISnippetsGateway from "../../infrastructure/SnippetsGateway";
+import { CallbackPm, Snippet } from "../../domain/snippet";
 
 class SnippetsRepository {
   snippetsPm: Observable;

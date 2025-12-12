@@ -1,6 +1,6 @@
-import ISnippetsGateway from "./SnippetsGateway";
+import ISnippetsGateway from "../../infrastructure/SnippetsGateway";
 import snippetsRepository from "./SnippetsRepository";
-import { CallbackVm, Snippet, SnippetSummary } from "./types";
+import { CallbackVm, Snippet, SnippetSummary } from "../../domain/snippet";
 
 export default class SnippetsPresenter {
   getSnippets: ISnippetsGateway["getSnippets"];
