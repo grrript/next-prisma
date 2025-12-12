@@ -1,5 +1,5 @@
-import SnippetsPresenter from "@/snippet/classes/SnippetsPresenter";
-import { Snippet, SnippetSummary } from "@/snippet/classes/types";
+import SnippetsPresenter from "@/projects/snippet/application/snippetslist/SnippetsPresenter";
+import { Snippet, SnippetSummary } from "@/projects/snippet/domain/snippet";
 
 // stub
 const getSnippets = () =>
